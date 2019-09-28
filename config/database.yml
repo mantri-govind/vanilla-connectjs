@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: vanilla_development
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+staging:
+  database:  <%= ENV['UAT_DATABASE_NAME'] %>
+  username: <%= ENV['UAT_DATABASE_USERNAME'] %>
+  password: <%= ENV['UAT_DATABASE_PASSWORD'] %>
+  host: <%= ENV['UAT_DATABASE_HOST'] %>
+  port: <%= ENV['UAT_DATABASE_PORT'] %>
+
+production:
+  <<: *default
+  database:  <%= ENV['PROD_DATABASE_NAME'] %>
+  username: <%= ENV['PROD_DATABASE_USERNAME'] %>
+  password: <%= ENV['PROD_DATABASE_PASSWORD'] %>
+  host: <%= ENV['PROD_DATABASE_HOST'] %>
+  port: <%= ENV['PROD_DATABASE_PORT'] %>
