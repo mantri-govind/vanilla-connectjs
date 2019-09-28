@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 #R&I Standard Gems for Rails
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'devise_ldap_authenticatable' 
 gem 'starburst'
 gem 'rails_admin'
